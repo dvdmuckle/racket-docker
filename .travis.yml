@@ -1,0 +1,14 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+  - docker build -t dvdmuckle/racket .
+deploy:
+  provider: script
+  script: 
+    - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - docker push dvdmuckle/racket
+  on:
+    branch: master 
