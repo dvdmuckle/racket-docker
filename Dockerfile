@@ -2,7 +2,7 @@ FROM alpine
 
 COPY ./*.patch ./
 RUN apk add --no-cache sqlite sqlite-dev curl alpine-sdk ca-certificates libffi libffi-dev && \
-  curl https://mirror.racket-lang.org/installers/6.7/racket-6.7-src-builtpkgs.tgz | tar -xz && \
+  curl --insecure https://mirror.racket-lang.org/installers/6.7/racket-6.7-src-builtpkgs.tgz | tar -xz && \
   cd racket-6.7 && \
   patch -p0 < ../xform.patch && \
   patch -p0 < ../sconfig.patch && \
