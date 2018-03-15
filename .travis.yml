@@ -6,7 +6,7 @@ services:
   - docker
 
 script:
-  - docker build -t dvdmuckle/racket .
+  - docker build -t dvdmuckle/racket -f Dockerfile.x64 .
 deploy:
   provider: script
   script: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD && docker push dvdmuckle/racket
