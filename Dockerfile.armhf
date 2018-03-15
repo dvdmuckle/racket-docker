@@ -10,7 +10,7 @@ RUN apk add --no-cache sqlite sqlite-dev curl alpine-sdk ca-certificates libffi 
   rm -Rf src/foreign/libffi && \
   cd src && \
   export CFLAGS="$CFLAGS -D_GNU_SOURCE" && \
-  export LDFLAGS="$LDFLAGS -lucontext" && \
+  export LDFLAGS="$LDFLAGS" && \
 	./configure \
 		--build=$CBUILD \
 		--host=$CHOST \
