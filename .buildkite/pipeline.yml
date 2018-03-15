@@ -1,4 +1,4 @@
 steps:
-  - command: "docker build -t dvdmuckle/racket:armhf --no-cache ."
+  - command: "docker build -t dvdmuckle/racket:armhf --no-cache -f Dockerfile.armhf ."
 
   - command: "docker push dvdmuckle/racket:armhf"
