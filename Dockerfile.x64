@@ -9,7 +9,7 @@ RUN apk add --no-cache sqlite sqlite-dev curl alpine-sdk ca-certificates libffi 
   patch -p1 < ../makefile-fix-bashism.patch && \
   rm -Rf src/foreign/libffi && \
   cd src && \
-  export CFLAGS="$CFLAGS -D_GNU_SOURCE" && \
+  export CFLAGS="$CFLAGS -D_GNU_SOURCE -msse2 -O2" && \
   export LDFLAGS="$LDFLAGS -lucontext" && \
 	./configure \
 		--build=$CBUILD \
