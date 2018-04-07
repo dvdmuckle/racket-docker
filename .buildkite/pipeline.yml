@@ -1,4 +1,11 @@
 steps:
-  - command: "docker build -t dvdmuckle/racket:armhf --no-cache -f Dockerfile.armhf ."
-
-  - command: "docker push dvdmuckle/racket:armhf"
+  - label: "🔨 Build"
+    branches: "master"
+    command:
+      -  "docker pull alpine:edge"
+      -  "docker build -t dvdmuckle/racket:armhf -f Dockerfile.armhf --no-cache ."
+  - wait
+  - label: "Deploy"
+    branches: "master"
+    command:
+      - "docker push dvdmuckle/racket:armhf"
